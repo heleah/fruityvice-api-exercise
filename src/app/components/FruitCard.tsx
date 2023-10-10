@@ -17,7 +17,7 @@ export default function FruitCard({ fruit }: FruitCardProps) {
         Nutritions:
         {Object.entries(fruit.nutritions).map(([name, value]: any) => {
           return (
-            <li key={name + value} className="font-normal">
+            <li key={name + value} className="font-normal capitalize">
               {name}: {value}
             </li>
           );

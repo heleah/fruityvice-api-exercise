@@ -61,9 +61,14 @@ export default function Filters({
       </div>
       <p>Genus</p>
       <div className="grid grid-cols-2 justify-around gap-2 border-2 rounded relative">
-        <button onClick={removeFromFilter}>All</button>
+        <button className="focus:bg-violet-700" onClick={removeFromFilter}>
+          All
+        </button>
         <span className="border-l-2 border-white h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("genus", "fragaria")}>
+        <button
+          className="focus:bg-lime-700"
+          onClick={() => addToFilter("genus", "fragaria")}
+        >
           Fragaria
         </button>
         <button onClick={() => addToFilter("genus", "pyrus")}>Pyrus</button>
