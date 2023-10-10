@@ -17,7 +17,7 @@ export default function ComparisonRow({
         {fruitProp === "name" ? "" : getPropName(fruitProp)}
       </div>
       <div className="grid grid-cols-3 place-items-center">
-        {fruits.map((fruit) => {
+        {fruits.map((fruit: any) => {
           return (
             <div key={fruit.id} className="p-2">
               {fruitProp.includes("-")
@@ -26,6 +26,7 @@ export default function ComparisonRow({
             </div>
           );
         })}
+        {fruits.length < 3 && fruitProp === "name" && "ADD FRUIT +"}
       </div>
     </div>
   );
