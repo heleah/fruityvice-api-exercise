@@ -40,7 +40,7 @@ export default function FruitContainer({
     <div className="flex flex-col h-96 gap-8 h-full p-12 pb-8">
       <SortSelect onSelect={handleSelect} />
       {fruits.length === 0
-        ? 'No matching fruits found. Try resetting all applied filters ("All").'
+        ? 'No matching fruits found. Try resetting all applied filters ("All") or reloading the page.'
         : fruits
             .slice(0, displayedNum)
             .map((fruit: any) => <FruitCard key={fruit.id} fruit={fruit} />)}
