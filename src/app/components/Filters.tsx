@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import SingleFilter from "./SingleFilter";
+import { Fruit } from "../types";
 
 interface FiltersProps {
-  allFruits: any;
-  displayedFruits: any;
+  allFruits: Fruit[];
   setDisplayedFruits: (obj: any) => any;
 }
 
@@ -12,9 +13,28 @@ interface FilterConditions {
   [key: string]: string;
 }
 
+const FRUIT_FAMILIES = [
+  "rosaceae",
+  "musaceae",
+  "ebenaceae",
+  "solanaceae",
+  "malvaceae",
+];
+
+const FRUIT_GENERA = [
+  "fragaria",
+  "pyrus",
+  "rubus",
+  "prunus",
+  "malus",
+  "diospyros",
+  "musa",
+  "solanum",
+  "durio",
+];
+
 export default function Filters({
   allFruits,
-  displayedFruits,
   setDisplayedFruits,
 }: FiltersProps) {
   const [filterConditions, setFilterConditions] = useState<FilterConditions>(
@@ -43,50 +63,18 @@ export default function Filters({
   return (
     <div className="flex flex-col h-96 gap-8 py-12">
       <strong>Filters:</strong>
-      <p>Family</p>
-      <div className="grid grid-cols-2 justify-around gap-2 border-2 border-black rounded bg-gray-300 relative text-sm">
-        <button onClick={removeFromFilter}>All</button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("family", "rosaceae")}>
-          Rosaceae
-        </button>
-        <button onClick={() => addToFilter("family", "musaceae")}>
-          Musaceae
-        </button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("family", "ebenaceae")}>
-          Ebenaceae
-        </button>
-        <button onClick={() => addToFilter("family", "solanaceae")}>
-          Solanaceae
-        </button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("family", "malvaceae")}>
-          Malvaceae
-        </button>
-      </div>
-      <p>Genus</p>
-      <div className="grid grid-cols-2 justify-around gap-2 border-2 rounded bg-gray-300 border-black relative text-sm">
-        <button onClick={removeFromFilter}>All</button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("genus", "fragaria")}>
-          Fragaria
-        </button>
-        <button onClick={() => addToFilter("genus", "pyrus")}>Pyrus</button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("genus", "rubus")}>Rubus</button>
-        <button onClick={() => addToFilter("genus", "prunus")}>Prunus</button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("genus", "malus")}>Malus</button>
-        <button onClick={() => addToFilter("genus", "diospyros")}>
-          Diospyros
-        </button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("genus", "musa")}>Musa</button>
-        <button onClick={() => addToFilter("genus", "solanum")}>Solanum</button>
-        <span className="border-l-2 border-black h-full w-0 absolute left-1/2 top-0"></span>
-        <button onClick={() => addToFilter("genus", "durio")}>Durio</button>
-      </div>
+      <SingleFilter
+        filterName="family"
+        filterArr={FRUIT_FAMILIES}
+        handleAdd={addToFilter}
+        handleRemove={removeFromFilter}
+      />
+      <SingleFilter
+        filterName="genus"
+        filterArr={FRUIT_GENERA}
+        handleAdd={addToFilter}
+        handleRemove={removeFromFilter}
+      />
     </div>
   );
 }

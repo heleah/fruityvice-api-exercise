@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import FruitCard from "./FruitCard";
 import SortSelect from "./SortSelect";
+import { Fruit } from "../types";
 
 interface FruitContainerProps {
-  fruits: any;
+  fruits: Fruit[];
   setFruits: (obj: any) => any;
 }
 

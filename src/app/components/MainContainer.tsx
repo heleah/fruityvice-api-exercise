@@ -3,9 +3,10 @@
 import { useState } from "react";
 import Filters from "./Filters";
 import FruitContainer from "./FruitContainer";
+import { Fruit } from "../types";
 
 interface MainContainerProps {
-  fruits: any;
+  fruits: Fruit[];
 }
 
 export default function MailContainer({ fruits }: MainContainerProps) {
@@ -17,7 +18,6 @@ export default function MailContainer({ fruits }: MainContainerProps) {
       <main className="w-3/4 grid grid-cols-[1fr,4fr]">
         <Filters
           allFruits={allFruits}
-          displayedFruits={displayedFruits}
           setDisplayedFruits={setDisplayedFruits}
         />
         <FruitContainer

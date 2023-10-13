@@ -1,7 +1,9 @@
 "use client";
 
+import { Fruit } from "../types";
+
 interface FruitCardProps {
-  fruit: any;
+  fruit: Fruit;
 }
 
 export default function FruitCard({ fruit }: FruitCardProps) {
