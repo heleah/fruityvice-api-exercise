@@ -9,7 +9,7 @@ export default function SortSelect({ onSelect }: SortSelectProps) {
       <select
         name="fruits-sort"
         id="fruits-select"
-        className="bg-black border-white border-2 rounded-lg p-1"
+        className="border-black border-2 rounded-lg p-1"
         onChange={(e) => onSelect(e.target.value)}
       >
         <option value="">Please Select</option>

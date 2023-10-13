@@ -6,7 +6,7 @@ interface FruitCardProps {
 
 export default function FruitCard({ fruit }: FruitCardProps) {
   return (
-    <div className="w-72 border-2 border-gray-600 rounded-lg p-4 bg-zinc-600">
+    <div className="w-72 border-2 border-gray-500 rounded-lg p-4 bg-zinc-400">
       <h2 className="text-xl">{fruit.name}</h2>
       <p>
         A fruit of the <strong>{fruit.family}</strong> family{" "}
